@@ -1,3 +1,23 @@
+# Intel RealSense D435 
+I have tested this RTABMap SLAM with Intel RealSense D435 
+## Step 1:
+Launch the camera nodes by using following command
+```
+roslaunch realsense2_camera rs_camera.launch align_depth:=true
+```
+## Step 2:
+Launch RTABMap SLAM using th following command which will open the RTABMap Visualizer with all the windows
+```
+roslaunch rtabmap_launch rtabmap.launch \
+    rtabmap_args:="--delete_db_on_start" \
+    depth_topic:=/camera/aligned_depth_to_color/image_raw \
+    rgb_topic:=/camera/color/image_raw \
+    camera_info_topic:=/camera/color/camera_info \
+    approx_sync:=false
+```
+
+
+
 rtabmap_ros
 =======
 
